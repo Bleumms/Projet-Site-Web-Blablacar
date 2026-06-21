@@ -12,7 +12,7 @@ class Model extends PDO {
  //Singleton
  public static function getInstance() {
   // les variables sont définies dans le fichier config.php
-  include_once '../controller/config.php';
+  include __DIR__ . '/../controller/config.php';
 
   if (DEBUG) echo ("Model : getInstance : dsn = $dsn</br>");
 
