@@ -6,7 +6,7 @@ require_once '../model/ModelReservation.php';
 
 class ControllerExaminateur {
 
- // --- E1 : affichage des deux superglobales (Cookies et Session)
+ // affichage des deux superglobales (cookies et session)
  public static function examinateurSuperglobales($args = []) {
   // démonstration d'écriture dans la superglobale $_SESSION (compteur de visites)
   if (!isset($_SESSION['nb_visites_examinateur'])) {
@@ -19,8 +19,7 @@ class ControllerExaminateur {
   require ($vue);
  }
 
- // --- E2 : ajout de 10 réservations aléatoires sur des trajets actifs,
- // ---      pour des passagers eux aussi choisis aléatoirement.
+ 
  public static function examinateurReservations($args = []) {
   $trajetsActifs = ModelTrajet::getAllActifs();
   $passagers = ModelUtilisateur::getByRole('passager');

@@ -3,7 +3,6 @@
 <?php
 require_once 'Model.php';
 
-// Modèle générique (innovation MVC) :
 // exécute n'importe quelle requête SELECT et retourne, comme dans l'exercice
 // "Recolte" du cours, un tableau contenant la liste des noms de colonnes ($cols)
 // et la liste des tuples ($datas). Une seule vue générique suffit ensuite à
@@ -16,7 +15,7 @@ class ModelGenerique {
    $statement = $database->prepare($query);
    $statement->execute();
 
-   // --- récupération des noms des colonnes de la requête
+   // recupération des noms des colonnes de la requête
    $cols = array();
    $nb = $statement->columnCount();
    for ($i = 0; $i < $nb; $i++) {
@@ -24,7 +23,7 @@ class ModelGenerique {
     $cols[] = $meta['name'];
    }
 
-   // --- récupération des tuples
+   //récupération des tuples
    $datas = $statement->fetchAll(PDO::FETCH_NUM);
 
    return array($cols, $datas);

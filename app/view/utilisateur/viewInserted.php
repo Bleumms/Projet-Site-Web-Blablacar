@@ -10,11 +10,10 @@
     if ($results > 0) {
      echo ("<h3>Le nouveau " . $role . " a été ajouté</h3>");
      echo ("<ul>");
-     echo ("<li>id = " . $results . "</li>");
      echo ("<li>nom = " . $_GET['nom'] . "</li>");
      echo ("<li>prenom = " . $_GET['prenom'] . "</li>");
      echo ("<li>role = " . $role . "</li>");
-     echo ("<li>login = " . strtolower($_GET['nom'] . $_GET['prenom']) . "</li>");
+     echo ("<li>login = " . $login . "</li>");
      echo ("<li>solde = " . $_GET['solde'] . "</li>");
      echo ("</ul>");
     } else {

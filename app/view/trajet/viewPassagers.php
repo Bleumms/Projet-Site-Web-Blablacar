@@ -18,7 +18,7 @@
       </thead>
       <tbody>
           <?php
-          // $results contient la liste des passagers (doublons possibles)
+          // $results contient la liste des passager
           foreach ($results as $passager) {
            printf("<tr><td>%s</td><td>%s</td></tr>", $passager['nom'], $passager['prenom']);
           }

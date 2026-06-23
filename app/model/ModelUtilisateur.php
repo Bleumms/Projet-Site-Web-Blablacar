@@ -6,9 +6,9 @@ require_once 'Model.php';
 class ModelUtilisateur {
  private $id, $nom, $prenom, $role, $login, $password, $solde;
 
- // pas possible d'avoir 2 constructeurs
+
  public function __construct($id = NULL, $nom = NULL, $prenom = NULL, $role = NULL, $login = NULL, $password = NULL, $solde = NULL) {
-  // valeurs nulles si pas de passage de parametres
+
   if (!is_null($id)) {
    $this->id = $id;
    $this->nom = $nom;
@@ -37,7 +37,7 @@ class ModelUtilisateur {
  function getSolde() { return $this->solde; }
 
 
- // retourne la liste de tous les utilisateurs
+
  public static function getAll() {
   try {
    $database = Model::getInstance();
@@ -52,7 +52,7 @@ class ModelUtilisateur {
   }
  }
 
- // retourne un utilisateur à partir de son id
+
  public static function getOne($id) {
   try {
    $database = Model::getInstance();
@@ -69,7 +69,6 @@ class ModelUtilisateur {
   }
  }
 
- // retourne un utilisateur à partir de son login (utile pour l'authentification)
  public static function getByLogin($login) {
   try {
    $database = Model::getInstance();
@@ -86,7 +85,6 @@ class ModelUtilisateur {
   }
  }
 
- // retourne la liste des utilisateurs d'un rôle donné (conducteur ou passager)
  public static function getByRole($role) {
   try {
    $database = Model::getInstance();
@@ -103,23 +101,33 @@ class ModelUtilisateur {
   }
  }
 
- // insertion d'un nouvel utilisateur.
- // La clé est gérée par le système (max(id) + 1).
- // Le login est construit à partir du nom et du prénom, le mot de passe vaut 'secret'.
  public static function insert($nom, $prenom, $role, $solde) {
   try {
    $database = Model::getInstance();
 
-   // recherche de la valeur de la clé = max(id) + 1
+  
    $query = "select max(id) from utilisateur";
    $statement = $database->query($query);
    $tuple = $statement->fetch();
    $id = $tuple['0'];
    $id++;
 
-   // construction du login
+
+   // construction du login (nom + prénom en minuscules)
    $login = strtolower($nom . $prenom);
 
+   $login = strtolower($nom . $prenom);
+
+   // si ce login existe déjà on ajoute un compteur
+   $base = $login;
+   $compteur = 1;
+   $verif = $database->prepare("select count(*) from utilisateur where login = :login");
+   $verif->execute(['login' => $login]);
+   while ($verif->fetchColumn() > 0) {
+    $compteur++;
+    $login = $base . $compteur;
+    $verif->execute(['login' => $login]);
+   }
    // ajout d'un nouveau tuple
    $query = "insert into utilisateur values (:id, :nom, :prenom, :role, :login, :password, :solde)";
    $statement = $database->prepare($query);
@@ -139,7 +147,7 @@ class ModelUtilisateur {
   }
  }
 
- // mise à jour du solde d'un utilisateur (utile pour les paiements)
+ // mise à jour du solde d'un utilisateur 
  public static function majSolde($id, $solde) {
   try {
    $database = Model::getInstance();

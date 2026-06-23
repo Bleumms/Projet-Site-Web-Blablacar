@@ -20,7 +20,7 @@ class ModelVille {
  function getNom() { return $this->nom; }
 
 
- // retourne la liste de toutes les villes
+
  public static function getAll() {
   try {
    $database = Model::getInstance();
@@ -34,7 +34,7 @@ class ModelVille {
   }
  }
 
- // retourne une ville à partir de son id
+
  public static function getOne($id) {
   try {
    $database = Model::getInstance();
@@ -50,7 +50,7 @@ class ModelVille {
   }
  }
 
- // insertion d'une nouvelle ville (la clé = max(id) + 1)
+
  public static function insert($nom) {
   try {
    $database = Model::getInstance();

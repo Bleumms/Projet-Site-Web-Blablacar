@@ -5,13 +5,12 @@ class Model extends PDO {
 
  private static $_instance;
 
- // Constructeur : héritage public obligatoire par héritage de PDO
  public function __construct() {
  }
 
  //Singleton
  public static function getInstance() {
-  // les variables sont définies dans le fichier config.php
+  // les var sont définies dans config.php
   include __DIR__ . '/../controller/config.php';
 
   if (DEBUG) echo ("Model : getInstance : dsn = $dsn</br>");

@@ -1,6 +1,5 @@
 <?php
 // ----- debut Router2 -----
-// La session doit être démarrée AVANT tout affichage (menus dynamiques, authentification, cookies)
 session_start();
 
 require ('../controller/ControllerBlablacar.php');
@@ -29,7 +28,7 @@ unset($args["action"]);
 // --- Liste des méthodes autorisées
 switch ($action) {
 
- // ----- Administrateur : gestion des utilisateurs
+ // Administrateur : gestion des utilisateurs
  case "utilisateurReadAll" :
  case "conducteurCreate" :
  case "conducteurCreated" :
@@ -38,7 +37,7 @@ switch ($action) {
   ControllerUtilisateur::$action($args);
   break;
 
- // ----- Administrateur et conducteur : gestion des véhicules
+ // Administrateur et conducteur : gestion des véhicules
  case "vehiculeReadAll" :
  case "vehiculeCreate" :
  case "vehiculeCreated" :
@@ -46,14 +45,14 @@ switch ($action) {
   ControllerVehicule::$action($args);
   break;
 
- // ----- Administrateur : gestion des villes
+ //  Administrateur : gestion des villes
  case "villeReadAll" :
  case "villeCreate" :
  case "villeCreated" :
   ControllerVille::$action($args);
   break;
 
- // ----- Conducteur : gestion des trajets
+ // Conducteur : gestion des trajets
  case "trajetReadMine" :
  case "trajetCreate" :
  case "trajetCreated" :
@@ -63,27 +62,27 @@ switch ($action) {
   ControllerTrajet::$action($args);
   break;
 
- // ----- Passager : gestion des réservations
+ //Passager : gestion des réservations
  case "reservationReadMine" :
  case "reservationCreate" :
  case "reservationCreated" :
   ControllerReservation::$action($args);
   break;
 
- // ----- Connexion / déconnexion
+ // Connexion / déconnexion
  case "connexionLogin" :
  case "connexionLogged" :
  case "connexionLogout" :
   ControllerConnexion::$action($args);
   break;
 
- // ----- Examinateur
+ // Examinateur
  case "examinateurSuperglobales" :
  case "examinateurReservations" :
   ControllerExaminateur::$action($args);
   break;
 
- // ----- Innovations
+ // Innovations
  case "innovationData" :
  case "innovationMvc" :
   ControllerInnovation::$action($args);

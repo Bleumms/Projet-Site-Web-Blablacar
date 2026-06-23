@@ -32,6 +32,19 @@
           ?>
       </tbody>
     </table>
+
+    <h3 class="text-primary mt-4">Trajets recommandés pour vous</h3>
+    <p>D'après vos réservations, voici les trajets retour encore disponibles.</p>
+      <?php
+      $cols = $reco[0];
+      $datas = $reco[1];
+      if (count($datas) == 0) {
+       echo ("<p>Aucune recommandation pour le moment.</p>");
+      } else {
+       include $root . '/app/view/fragment/fragmentTableGenerique.php';
+      }
+      ?>
+  </div>
   </div>
 
   <?php include $root . '/app/view/fragment/fragmentFooter.html'; ?>

@@ -5,7 +5,6 @@ require_once 'Model.php';
 
 class ModelTrajet {
  private $id, $ville_depart, $ville_arrivee, $conducteur_id, $vehicule_id, $prix, $date_depart, $heure_depart, $statut;
- // attributs supplémentaires construits par jointure (noms des villes, conducteur, véhicule)
  private $villeDepart, $villeArrivee, $conducteur, $vehicule;
 
  public function __construct($id = NULL, $ville_depart = NULL, $ville_arrivee = NULL, $conducteur_id = NULL, $vehicule_id = NULL, $prix = NULL, $date_depart = NULL, $heure_depart = NULL, $statut = NULL) {
@@ -41,14 +40,14 @@ class ModelTrajet {
  function getDateDepart() { return $this->date_depart; }
  function getHeureDepart() { return $this->heure_depart; }
  function getStatut() { return $this->statut; }
- // attributs de jointure
+
  function getVilleDepart() { return $this->villeDepart; }
  function getVilleArrivee() { return $this->villeArrivee; }
  function getConducteur() { return $this->conducteur; }
  function getVehicule() { return $this->vehicule; }
 
 
- // retourne tous les trajets (actifs et passifs) d'un conducteur, avec les noms des villes
+ //  tous les trajets d'un conducteur
  public static function getByConducteur($conducteur_id) {
   try {
    $database = Model::getInstance();
@@ -67,7 +66,7 @@ class ModelTrajet {
   }
  }
 
- // retourne les trajets actifs d'un conducteur (sélection pour les passagers / la clôture)
+ // retourne les trajets actifs d'un conducte ur 
  public static function getActifsByConducteur($conducteur_id) {
   try {
    $database = Model::getInstance();
@@ -87,7 +86,7 @@ class ModelTrajet {
   }
  }
 
- // retourne tous les trajets actifs de l'application (réservation par un passager)
+
  public static function getAllActifs() {
   try {
    $database = Model::getInstance();
@@ -106,7 +105,7 @@ class ModelTrajet {
   }
  }
 
- // retourne un trajet à partir de son id
+ 
  public static function getOne($id) {
   try {
    $database = Model::getInstance();
@@ -122,7 +121,7 @@ class ModelTrajet {
   }
  }
 
- // insertion d'un nouveau trajet (statut actif par défaut, clé = max(id) + 1)
+ 
  public static function insert($ville_depart, $ville_arrivee, $conducteur_id, $vehicule_id, $prix, $date_depart, $heure_depart) {
   try {
    $database = Model::getInstance();
@@ -152,9 +151,6 @@ class ModelTrajet {
   }
  }
 
- // clôture d'un trajet actif : passage en statut passif puis paiements
- // des comptes des passagers vers le compte du conducteur.
- // Un passager peut avoir réservé plusieurs fois : il paie alors plusieurs fois.
  public static function cloturer($id) {
   try {
    $database = Model::getInstance();

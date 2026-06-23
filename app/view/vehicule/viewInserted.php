@@ -10,7 +10,6 @@
     if ($results > 0) {
      echo ("<h3>Le nouveau véhicule a été ajouté</h3>");
      echo ("<ul>");
-     echo ("<li>id = " . $results . "</li>");
      echo ("<li>marque = " . $_GET['marque'] . "</li>");
      echo ("<li>modele = " . $_GET['modele'] . "</li>");
      echo ("<li>annee = " . $_GET['annee'] . "</li>");

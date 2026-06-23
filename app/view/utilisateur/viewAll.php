@@ -22,7 +22,6 @@
       </thead>
       <tbody>
           <?php
-          // La liste des utilisateurs est dans la variable $results
           foreach ($results as $element) {
            printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%.2f</td></tr>",
              $element->getNom(), $element->getPrenom(), $element->getRole(),

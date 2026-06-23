@@ -5,7 +5,6 @@ require_once '../model/ModelUtilisateur.php';
 
 class ControllerVehicule {
 
- // --- A4 : liste de tous les véhicules (propriétaire = prénom + nom, pas de clés)
  public static function vehiculeReadAll($args = []) {
   $results = ModelVehicule::getAll();
   include 'config.php';
@@ -13,8 +12,6 @@ class ControllerVehicule {
   require ($vue);
  }
 
- // --- A5 : affiche le formulaire de création d'un véhicule
- // --- la liste des propriétaires possibles est la liste des conducteurs
  public static function vehiculeCreate($args = []) {
   $results = ModelUtilisateur::getByRole('conducteur');
   include 'config.php';
@@ -22,7 +19,6 @@ class ControllerVehicule {
   require ($vue);
  }
 
- // --- A5 : traitement du formulaire de création d'un véhicule
  public static function vehiculeCreated($args = []) {
   $results = ModelVehicule::insert(
       htmlspecialchars($_GET['marque']),
@@ -36,11 +32,11 @@ class ControllerVehicule {
   require ($vue);
  }
 
- // --- C1 : liste des véhicules du conducteur connecté
+
  public static function vehiculeReadMine($args = []) {
   $proprietaire_id = $_SESSION['login_id'];
   $results = ModelVehicule::getByProprietaire($proprietaire_id);
-  // on récupère aussi le conducteur connecté pour l'afficher dans le titre
+  // récup du conducteur connecté pour l'afficher dans le titre
   $connecte = ModelUtilisateur::getOne($proprietaire_id)[0];
   include 'config.php';
   $vue = $root . '/app/view/vehicule/viewMine.php';

@@ -5,7 +5,6 @@ require_once 'Model.php';
 
 class ModelReservation {
  private $id, $trajet_id, $passager_id;
- // attributs supplémentaires construits par jointure (affichage des réservations)
  private $date_depart, $heure_depart, $depart, $destination, $conducteur, $vehicule, $immatriculation;
 
  public function __construct($id = NULL, $trajet_id = NULL, $passager_id = NULL) {
@@ -23,7 +22,7 @@ class ModelReservation {
  function getId() { return $this->id; }
  function getTrajetId() { return $this->trajet_id; }
  function getPassagerId() { return $this->passager_id; }
- // attributs de jointure
+
  function getDateDepart() { return $this->date_depart; }
  function getHeureDepart() { return $this->heure_depart; }
  function getDepart() { return $this->depart; }
@@ -33,7 +32,7 @@ class ModelReservation {
  function getImmatriculation() { return $this->immatriculation; }
 
 
- // retourne toutes les réservations d'un passager, avec les informations sur les trajets
+ // retourne toutes les reservations d'un passager + infos sur les trajets
  public static function getByPassager($passager_id) {
   try {
    $database = Model::getInstance();
@@ -58,7 +57,7 @@ class ModelReservation {
   }
  }
 
- // retourne la liste des passagers ayant réservé un trajet (doublons possibles)
+ // retourne  passagers ayant réservé un trajet 
  public static function getPassagersByTrajet($trajet_id) {
   try {
    $database = Model::getInstance();
@@ -76,7 +75,7 @@ class ModelReservation {
   }
  }
 
- // insertion d'une nouvelle réservation (la clé = max(id) + 1)
+ 
  public static function insert($trajet_id, $passager_id) {
   try {
    $database = Model::getInstance();

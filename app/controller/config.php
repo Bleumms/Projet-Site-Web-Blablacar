@@ -12,8 +12,6 @@ $dsn = 'mysql:dbname=khiatmag;host=localhost;charset=utf8';
 $username = 'khiatmag';
 $password = 'lHjX6bTS';
 
-// ----- Mettre LOCAL à TRUE pour travailler sur WAMP (localhost),
-// ----- et à FALSE avant de déposer le projet sur dev-isi.utt.fr
 if (!defined('LOCAL')) {
     define('LOCAL', FALSE);
 }

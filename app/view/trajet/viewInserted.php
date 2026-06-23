@@ -10,7 +10,6 @@
     if ($results > 0) {
      echo ("<h3>Le nouveau trajet a été ajouté</h3>");
      echo ("<ul>");
-     echo ("<li>id = " . $results . "</li>");
      echo ("<li>prix = " . $_GET['prix'] . "</li>");
      echo ("<li>date_depart = " . $_GET['date_depart'] . "</li>");
      echo ("<li>heure_depart = " . $_GET['heure_depart'] . "</li>");

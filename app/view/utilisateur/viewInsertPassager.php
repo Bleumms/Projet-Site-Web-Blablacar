@@ -21,7 +21,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="solde">Solde initial</label>
-        <input class="form-control" type="number" step="any" id="solde" name='solde' value="0" required>
+        <input class="form-control" type="number" step="any" id="solde" name='solde' value="0" min="-999999.99" max="999999.99" required>
       </div>
       <button class="btn btn-primary" type="submit">Ajouter</button>
     </form>

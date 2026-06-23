@@ -48,12 +48,12 @@
 
       <div class="form-group mb-3">
         <label for="prix">Prix du trajet</label>
-        <input class="form-control" type="number" step="any" id="prix" name='prix' value="10" required>
+        <input class="form-control" type="number" step="any" id="prix" name='prix' value="10" min="0" max="99999999.99" required>
       </div>
 
       <div class="form-group mb-3">
         <label for="date_depart">Date du trajet :</label>
-        <input class="form-control" type="date" id="date_depart" name='date_depart' required>
+        <input class="form-control" type="date" id="date_depart" name='date_depart' min="<?php echo date('Y-m-d'); ?>" required>
       </div>
 
       <div class="form-group mb-3">

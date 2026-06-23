@@ -29,7 +29,7 @@
       </div>
       <div class="form-group mb-3">
         <label for="proprietaire_id">Sélectionner un propriétaire</label>
-        <select class="form-control" id="proprietaire_id" name='proprietaire_id' size="5">
+        <select class="form-control" id="proprietaire_id" name='proprietaire_id' size="5" required>
             <?php
             // $results contient la liste des conducteurs
             foreach ($results as $conducteur) {

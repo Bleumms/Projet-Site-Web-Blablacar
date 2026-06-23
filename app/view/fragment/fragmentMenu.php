@@ -2,7 +2,7 @@
 <?php
 require_once $root . '/app/model/ModelUtilisateur.php';
 
-// ----- Récupération de l'utilisateur actuellement connecté (variable de SESSION login_id)
+//Récupération de l'utilisateur  connecté (variable de SESSION login_id)
 $login_id = isset($_SESSION['login_id']) ? $_SESSION['login_id'] : -1;
 $connecte = NULL;
 if ($login_id >= 0) {
@@ -83,8 +83,8 @@ if ($login_id >= 0) {
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Innovations</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="router2.php?action=innovationData">Innovation data : tableau de bord</a></li>
-            <li><a class="dropdown-item" href="router2.php?action=innovationMvc">Innovation MVC : vue générique</a></li>
+            <li><a class="dropdown-item" href="router2.php?action=innovationData">Innovation data </a></li>
+            <li><a class="dropdown-item" href="router2.php?action=innovationMvc">Innovation MVC </a></li>
           </ul>
         </li>
 
@@ -94,6 +94,7 @@ if ($login_id >= 0) {
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="router2.php?action=examinateurSuperglobales">SuperGlobales (Cookies et Sessions)</a></li>
             <li><a class="dropdown-item" href="router2.php?action=examinateurReservations">Ajout de 10 réservations aléatoires</a></li>
+            
           </ul>
         </li>
 

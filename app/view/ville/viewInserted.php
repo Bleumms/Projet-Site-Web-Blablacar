@@ -10,7 +10,6 @@
     if ($results > 0) {
      echo ("<h3>La nouvelle ville a été ajoutée</h3>");
      echo ("<ul>");
-     echo ("<li>id = " . $results . "</li>");
      echo ("<li>nom = " . $_GET['nom'] . "</li>");
      echo ("</ul>");
     } else {

@@ -21,7 +21,7 @@
       </thead>
       <tbody>
           <?php
-          // Interdit d'afficher les clés primaires : le propriétaire est construit à partir du prénom et du nom
+         
           foreach ($results as $element) {
            printf("<tr><td>%s</td><td>%s</td><td>%d</td><td>%s</td><td>%s</td></tr>",
              $element->getMarque(), $element->getModele(), $element->getAnnee(),

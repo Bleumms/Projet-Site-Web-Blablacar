@@ -33,8 +33,6 @@ class ModelVehicule {
  function getProprietaire() { return $this->proprietaire; }
 
 
- // retourne la liste de tous les véhicules.
- // Le propriétaire est construit à partir du prénom et du nom (interdit d'afficher les clés).
  public static function getAll() {
   try {
    $database = Model::getInstance();
@@ -51,7 +49,7 @@ class ModelVehicule {
   }
  }
 
- // retourne la liste des véhicules d'un propriétaire (le conducteur connecté)
+
  public static function getByProprietaire($proprietaire_id) {
   try {
    $database = Model::getInstance();
@@ -67,7 +65,7 @@ class ModelVehicule {
   }
  }
 
- // insertion d'un véhicule (la clé = max(id) + 1)
+
  public static function insert($marque, $modele, $annee, $immatriculation, $proprietaire_id) {
   try {
    $database = Model::getInstance();

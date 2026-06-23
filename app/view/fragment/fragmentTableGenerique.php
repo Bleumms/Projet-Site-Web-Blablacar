@@ -1,7 +1,6 @@
 <!-- ----- début fragmentTableGenerique -->
 <?php
-// Vue générique : affiche n'importe quel résultat de requête.
-// $cols : tableau des noms de colonnes ; $datas : tableau des tuples.
+// $cols : tableau des noms de colonnes ; $datas : tableau des tuples
 ?>
 <table class="table table-striped table-bordered">
   <thead>
